@@ -1,0 +1,17 @@
+max-items       			200 
+browser          			"chromium -incognito --app=%u"
+show-read-feeds  			no
+show-read-articles 			no
+keep-articles-days 			1
+datetime-format				"%b %d,%l:%M %p"
+
+color background			white	black
+color listnormal          	white   black
+color listfocus           	yellow  color55	bold
+color listnormal_unread   	white 	black
+color listfocus_unread    	yellow 	color55	bold
+color info                	white  	color55 bold
+color article             	white   black 
+
+feedlist-format				"  %3U  |  %t"
+articlelist-format			"  %D | %t"
