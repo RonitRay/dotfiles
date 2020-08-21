@@ -1,0 +1,22 @@
+[Added Associations]
+inode/directory=exo-file-manager.desktop;
+x-scheme-handler/trash=exo-file-manager.desktop;
+text/plain=nvim.desktop;
+application/x-executable=nvim.desktop;
+image/jpeg=userapp-sxiv-TCYDP0.desktop;
+
+[Default Applications]
+text/plain=nvim.desktop
+text/html=chromium-devel.desktop
+x-scheme-handler/http=chromium-devel.desktop
+x-scheme-handler/https=chromium-devel.desktop
+x-scheme-handler/about=chromium-devel.desktop
+x-scheme-handler/unknown=chromium-devel.desktop
+image/jpeg=userapp-sxiv-TCYDP0.desktop
+image/png=userapp-sxiv-TCYDP0.desktop
+application/pdf=zathura.desktop
+application/vnd.comicbook+zip=zathura.desktop
+application/vnd.comicbook+rar=zathura.desktop
+application/x-cbr=zathura.desktop
+
+[Removed Associations]
