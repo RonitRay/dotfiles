@@ -1,0 +1,5 @@
+/home/media/
+/home/phoenix/AppImages/
+/home/phoenix/Documents/
+/home/phoenix/Downloads/
+/home/phoenix/Pictures/
