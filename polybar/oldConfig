@@ -18,11 +18,10 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #161821
-;background-alt = #81a1c1
-background-alt = #84a0c6
+background = #000
+background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #fff
+foreground = #ffffff
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
@@ -53,12 +52,12 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=true;0
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 font-3 = Font Awesome 5 Brands:pixelsize=10;1
 font-4 = Font Awesome 5 Free Solid:pixelsize=9;1
 
-modules-left = bspwm xkeyboard 
+modules-left = bspwm xkeyboard
 modules-right = calendar volume battery 
 
 tray-position = right
@@ -82,7 +81,7 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:80:...%
+label = %title:0:30:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -171,20 +170,19 @@ pin-workspaces = false
 
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-foreground = #000000
 label-focused-underline= ${colors.primary}
-label-focused-padding = 2
+label-focused-padding = 1
 
 label-occupied = %index%
-label-occupied-padding = 2
+label-occupied-padding = 1
 
 label-urgent = %index%!
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 label-empty = 
 label-empty-foreground = #555
-label-empty-padding = 2
+label-empty-padding = 1
 
 [global/wm]
 margin-top = 0

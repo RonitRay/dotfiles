@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 " List ends here. Plugins become visible to Vim after this call.
 
 Plug 'itchyny/lightline.vim'
+Plug 'ap/vim-css-color'
 
 call plug#end()
 

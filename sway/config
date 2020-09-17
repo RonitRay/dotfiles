@@ -46,17 +46,17 @@ set $right l
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty 
+bindsym $mod+Return exec urxvt 
 
 # launch privacy-hardened Firefox profile
-bindsym $mod+a exec firefox -P Heavy 
+bindsym $mod+w exec MOZ_ENABLE_WAYLAND=1 firefox -P Heavy
 # bindsym $mod+w exec /home/phoenix/AppImages/ungoogled-chromium_83.0.4103.97-1.1_linux.AppImage
 #bindsym $mod+w exec /home/phoenix/Downloads/Programs/tor-browser_en-US/start-tor-browser.desktop
 # launch basic Firefox profile
-bindsym $mod+s exec firefox -P Light
+bindsym $mod+e exec MOZ_ENABLE_WAYLAND=1 firefox -P Light
 
 # launch password vault
-bindsym $mod+d exec keepassxc
+bindsym $mod+p exec keepassxc
 
 # launch screenshot
 bindsym Print exec flameshot gui
@@ -65,7 +65,7 @@ bindsym Print exec flameshot gui
 #bindsym $mod+f exec urxvt -e ranger 
 bindsym $mod+f exec pcmanfm 
 #launch rss feed reader
-bindsym $mod+n exec alacritty -e newsboat
+bindsym $mod+n exec urxvt -e newsboat
 
 #launch rofi window switcher
 bindsym mod1+Tab exec rofi -show window -lines 10 -location 1 -width 100
@@ -75,18 +75,18 @@ bindsym mod1+Tab exec rofi -show window -lines 10 -location 1 -width 100
 #bindsym $mod+space exec dmenu_run -fn 'SFNS Display-12'
 bindsym $mod+space exec rofi -show drun -location 1 -width 100 -lines 5
 #launch vim
-bindsym $mod+t exec alacritty -e nvim
+bindsym $mod+t exec urxvt -e nvim
 
 #file search and launch
 #bindsym $mod+Tab exec xdg-open "$(locate -e /home/phoenix /home/media -i| rofi -i -dmenu -matching normal -width 60 -lines 5)"
 # bindsym $mod+Tab exec xdg-open "/home/$(locate -e /home/phoenix /home/media | cut -d / -f-2 --complement | dmenu -i -fn 'SFNS DIsplay=-12' -l 5)"
 # bindsym $mod+Tab exec xdg-open "$(locate -e /home/phoenix /home/media | dmenu -i -fn 'SFNS DIsplay=-12' -l 5)"
 #bindsym $mod+Tab exec xdg-open "$(locate -e /home/phoenix /home/media -i| rofi -i -dmenu -matching normal -location 1 -width 100 -lines 5)"
-bindsym $mod+Tab exec xdg-open "$(find $(cat /home/phoenix/.config/i3/Scripts/searchdirs.txt)| sort | rofi -i -dmenu -matching normal -location 1 -width 100 -lines 5 -p 'file')"
+bindsym $mod+Tab exec xdg-open "$(find /home/phoenix /home/media| rofi -i -dmenu -matching normal -location 1 -width 100 -lines 5)"
 
 #launch calculator script
-# bindsym mod1+c exec alacritty -e qalc -t
-bindsym mod1+c exec ~/.config/i3/Scripts/calc.sh
+bindsym mod1+c exec urxvt -e qalc -t
+
 # kill focused window
 bindsym $mod+q exec i3lock -c 4f8a8b
 
@@ -196,8 +196,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-#bindsym $mod+Shift+e exec alacritty -e bash ~/.config/i3/Scripts/powermenu.sh
-bindsym $mod+Shift+e exec ~/.config/i3/Scripts/powermenu_dmenu.sh
+bindsym $mod+Shift+e exec urxvt -e bash ~/.config/i3/Scripts/powermenu.sh
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -233,7 +232,7 @@ bindsym $mod+r mode "resize"
 
 # window colors
 #                       border              background         text                 indicator
-#client.focused          $bg-color          $text-color          #00ff00
+#client.focused          $bg-color           $bg-color          $text-color          #00ff00
 #client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
 #client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
 #client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
@@ -248,11 +247,16 @@ bar {
 #       colors {
 #		background $bg-color
 #	   	separator #757575
-#		#                  border             background         text
+		#                  border             background         text
 #		focused_workspace  $bg-color          $bg-color          $text-color
 #		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
 #		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 #	}
+}
+
+input "1267:12299:ELAN0501:00_04F3:300B_Touchpad" {
+      tap enabled
+      natural_scroll enabled
 }
 
 # You can also use any non-zero value if you'd like to have a border
@@ -263,11 +267,11 @@ gaps outer 0
 #smart_gaps on
 smart_borders on
 exec_always sleep 1 && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
-exec_always nitrogen --restore
-exec_always picom --config ~/.config/picom.conf 
-exec_always flameshot 
+#exec_always nitrogen --restore
+#exec_always picom --config ~/.config/picom.conf
+exec xrdb ~/.Xresources
+#exec_always flameshot
 #exec_always /home/phoenix/.config/polybar/launch.sh
-exec_always nm-applet 
-exec_always pamac-tray 
+#exec_always nm-applet
+#exec_always pamac-tray
 exec_always emacs --daemon
-exec_always setxkbmap -option caps:swapescape 

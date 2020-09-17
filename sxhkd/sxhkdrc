@@ -21,47 +21,55 @@ XF86AudioMicMute
 
 # poweroff menu
 super + shift + e
-    urxvt -e ~/Scripts/usermenu.sh
+    ~/.config/polybar/scripts/powermenu_dmenu.sh
 
 # terminal emulator
 super + Return
-	urxvt
+	alacritty
 
 # file manager
 super + f
     pcmanfm
 
 # light firefox profile
-super + e
+super + s
     firefox -P Light
 
 # privacy hardened ffp
-super + w
-    firefox -P Private
+super + a
+    firefox -P Heavy
 
 # program launcher
 super + @space
-    rofi -show drun
+    rofi -show drun -location 1 -width 100 -lines 5
 
 # password vault
-super + v
+super + d
     keepassxc
+
+# news
+super + n
+    alacritty -e newsboat
 
 # window switcher
 mod1 + Tab
-    rofi -show window
-
+    rofi -show window -lines 10 -location 1 -width 100
 #file search
+
 super + Tab
-    xdg-open "$(locate -e /home/phoenix /home/media -i | rofi -i -dmenu -matching normal -width 80)"
+    xdg-open "$(find $(cat /home/phoenix/.config/i3/Scripts/searchdirs.txt)| sort | rofi -i -dmenu -matching normal -location 1 -width 100 -lines 5 -p 'file')"
 
 #calculator
 mod1 + c
-    urxvt -e qalc -t
+    ~/.config/i3/Scripts/calc.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+# lock screen
+super + q
+    i3lock -c 4f8a8b
 
 #
 # bspwm hotkeys
@@ -92,7 +100,7 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,shift + f}
+super + {t,shift + t,w,shift + f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
@@ -104,30 +112,26 @@ super + ctrl + {m,x,y,z}
 #
 
 # focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+#super + {_,shift + }{h,j,k,l}
+#	bspc node -{f,s} {west,south,north,east}
+
+super + h
+    bspc node -f prev.local.!hidden.window
+
+super + l
+    bspc node -f next.local.!hidden.window
 
 # focus the node for the given path jump
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
-super + {_,shift + }q
-	bspc node -f {next,prev}.local.!hidden.window
+#super + {_,shift + }q
+#	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
-
-# focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
-
-# focus the older or newer node in the focus history
-super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}

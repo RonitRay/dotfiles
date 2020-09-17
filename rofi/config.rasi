@@ -53,7 +53,7 @@ font: "SFNS Display 11";
 /*	window-format: "{w}    {c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-theme: "gruvbox-dark-hard";
+//theme: "dmenu";
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
@@ -144,4 +144,4 @@ theme: "gruvbox-dark-hard";
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
-@import "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
+@import "/usr/share/rofi/themes/android_notification.rasi"

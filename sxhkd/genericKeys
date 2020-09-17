@@ -1,0 +1,70 @@
+#
+# wm independent hotkeys
+#
+
+# PrtSc
+Print
+    flameshot gui
+
+# sound controls
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +10%
+
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -10%
+
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86AudioMicMute
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# poweroff menu
+super + shift + e
+    ~/.config/polybar/scripts/powermenu_dmenu.sh
+
+# terminal emulator
+super + Return
+	alacritty
+
+# file manager
+super + f
+    pcmanfm
+
+# light firefox profile
+super + s
+    firefox -P Light
+
+# privacy hardened ffp
+super + a
+    firefox -P Heavy
+
+# program launcher
+super + @space
+    rofi -show drun -location 1 -width 100 -lines 5
+
+# password vault
+super + d
+    keepassxc
+
+# news
+super + n
+    alacritty -e newsboat
+
+# window switcher
+mod1 + Tab
+    bindsym mod1+Tab exec rofi -show window -lines 10 -location 1 -width 100
+#file search
+
+super + Tab
+    xdg-open "$(find $(cat /home/phoenix/.config/i3/Scripts/searchdirs.txt)| sort | rofi -i -dmenu -matching normal -location 1 -width 100 -lines 5 -p 'file')"
+
+#calculator
+mod1 + c
+    ~/.config/i3/Scripts/calc.sh
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+
