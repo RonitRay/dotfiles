@@ -8,7 +8,8 @@
 # * makes it actually use the "clipboard" clipboard and not primary
 # only like 10 SLOC.
 
-menu="rofi -dmenu -location 1 -width 100 -lines 2"
+# menu="rofi -dmenu -location 1 -width 100 -lines 2"
+menu="dmenu -l 2"
 answer=$(echo "$@" | bc -l | sed '/\./ s/\.\{0,1\}0\{1,\}$//')
 
 action=$(echo -e "Copy to clipboard\nClear" |

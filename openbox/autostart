@@ -16,12 +16,14 @@
 #
 #xfce-mcs-manager &
 
-sleep 1 && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-nitrogen --restore &
-flameshot &
-xfce4-panel &
-pamac-tray &
-nm-applet &
-picom --config ~/.config/picom.conf &
-cbatticon &
-batify -i 30 -c 10 -f 98 &
+#sleep 1 && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+#nitrogen --restore &
+#flameshot &
+#xfce4-panel &
+#pamac-tray &
+#nm-applet &
+#picom --config ~/.config/picom.conf &
+#cbatticon &
+#batify -i 30 -c 10 -f 98 &
+tint2 &
+feh --bg-scale ~/Pictures/1bg.jpg &
